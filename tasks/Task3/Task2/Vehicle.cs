@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Task2
 {
@@ -14,8 +10,9 @@ namespace Task2
 
         public decimal m_price;
         public double m_volume;
+        public double m_newPrice;
         //Constructor
-        public Vehicle( string name, double newWidth, double newHeight, decimal price)
+        public Vehicle(string name, double newWidth, double newHeight, decimal price)
         {
             if (newWidth == 20) throw new Exception("Width musst be greater then 20");
             if (newHeight == 20) throw new Exception("Height musst be lower then 20");
@@ -54,7 +51,7 @@ namespace Task2
         }
 
         //Methods
-        public decimal UpdatePrice( decimal newPrice )
+        public decimal UpdatePrice(decimal newPrice)
         {
             if (newPrice < 0) throw new Exception("Price musst be greater then 20");
             else
@@ -62,11 +59,30 @@ namespace Task2
             return m_price;
         }
 
+        public decimal VehiclePrice(decimal newPrice)
+        {
+            return m_price * 3;
+        }
+        //Methods as Values
+
         //Func<string, bool, int>
         //Action<string, bool>
-        //Unnamed Method
 
-        
-         
-       }
+        //Unnamed Methods
+        //Func <double, double> f;
+        //f = (int x) => {return x + 3;}
+
+        public static R[] Map<T,R> (T[] data, Func <T, R> computation)
+
+        //Vehicels prizes to the year prodaction
+        {
+            var result = new R[data.Length];
+            for (var i = 0; i < data.Length; i++)
+            {
+                result[i] = computation(data[i]);
+            }
+            return result;
+        }
+
+    }
 }

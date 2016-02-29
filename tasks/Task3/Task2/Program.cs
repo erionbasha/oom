@@ -28,8 +28,15 @@ namespace Task2
 
             Action<string> Message = Console.WriteLine;
             Message("Das ist ein Message vom Action: " + v1.Name);
-                   
+            Vehicle v1_2 = new Vehicle("red", 17, 222, 89);
+            NewVehicle v1_3 = new NewVehicle(200);
+            BigVehicle v1_4 = new BigVehicle(45);
+            Console.WriteLine(v1_3.m_power);
+            Console.WriteLine(v1_3.m_volume);
+
 
         }
+
+
     }
 }
